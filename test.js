@@ -7,6 +7,12 @@ let cars = [
         "capacity": 7
     },
     {
+        "color": "purple",
+        "type": "Volkswagen bbbbb",
+        "capacity": 7
+    },
+    
+    {
         "color": "red",
         "type": "station wagon",
         "capacity": 5
@@ -39,8 +45,26 @@ console.log(redCars);
 
 // task second answer
 //..
-let uniqueCars = new Set();
-for (let car of cars) {
-    uniqueCars.add(car.color);
+// let uniqueCars = new Set();
+// for (let car of cars) {
+//     uniqueCars.add(car.color);
+// }
+// console.log(Array.from(uniqueCars));
+
+// //..
+// const key = 'color';
+
+// const arrayUniqueKey = [...new Map(cars.map(item =>
+//   [item[key], item])).values()];
+// console.log(arrayUniqueKey);
+let uniqueCars = {};
+cars.forEach((car, index) => {
+  const carType = car.color;
+  if (!uniqueCars[{carType}]) {
+    uniqueCars[carType] = index;
+  }
+});
+
+for (let carType in uniqueCars) {
+  console.log(`Index: ${uniqueCars[carType]}, Car Type: ${carType}`);
 }
-console.log(Array.from(uniqueCars));
